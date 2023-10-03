@@ -14,7 +14,7 @@ function Navbar() {
   const closeMobileMenu = () => setClick(false);
 
   const showButton = () => {
-    if (window.innerWidth <= 960) {
+    if (window.innerWidth <= 911) {
       setButton(false);
     } else {
       setButton(true);
@@ -40,20 +40,20 @@ function Navbar() {
           <div className='navbar-container container'>
             <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
               <MdFingerprint className='navbar-icon' />
-              Market Insights 
+              CrownTrade 
             </Link>
             <div className='menu-icon' onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}
             </div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
               <li className='nav-item'>
-                <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                <Link to='/home' className='nav-links' onClick={closeMobileMenu}>
                   Home
                 </Link>
               </li>
               <li className='nav-item'>
                 <Link
-                  to='/trending'
+                  to='/trending-stocks'
                   className='nav-links'
                   onClick={closeMobileMenu}
                 >
@@ -62,7 +62,7 @@ function Navbar() {
               </li>
               <li className='nav-item'>
                 <Link
-                  to='/news'
+                  to='/recent-news'
                   className='nav-links'
                   onClick={closeMobileMenu}
                 >
@@ -71,7 +71,7 @@ function Navbar() {
               </li>
               <li className='nav-item'>
                 <Link
-                  to='/products'
+                  to='/our-Team'
                   className='nav-links'
                   onClick={closeMobileMenu}
                 >
