@@ -21,3 +21,4 @@
 /Project/frontend/npm-debug.log*
 /Project/frontend/yarn-debug.log*
 /Project/frontend/yarn-error.log*
+.DS_Store
