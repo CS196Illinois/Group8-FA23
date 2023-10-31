@@ -1,9 +1,9 @@
 import React from 'react';
-import './HeroSection.css';
+import './tre.css';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 
-function HeroSection({
+function StockSection({
   lightBg,
   topLine,
   lightText,
@@ -18,27 +18,27 @@ function HeroSection({
   return (
     <>
       <div
-        className={lightBg ? 'home__hero-section' : 'home__hero-section darkBg'}
+        className={lightBg ? 'tre-section1' : 'tre-section1 darkBg1'}
       >
-        <div className='container'>
+        <div className='container1'>
           <div
-            className='row home__hero-row'
+            className='row home__tre-row1'
             style={{
               display: 'flex',
-              flexDirection: imgStart === 'start' ? 'row-reverse' : 'row'
+              flexDirection: imgStart === 'start' ? 'row-reverse1' : 'row1'
             }}
           >
-            <div className='col'>
-              <div className='home__hero-text-wrapper'>
-                <div className='top-line'>{topLine}</div>
-                <h1 className={lightText ? 'heading' : 'heading dark'}>
+            <div className='col1'>
+              <div className='home__tre-text-wrapper1'>
+                <div className='top-line1'>{topLine}</div>
+                <h1 className={lightText ? 'heading1' : 'heading1 dark1'}>
                   {headline}
                 </h1>
                 <p
                   className={
                     lightTextDesc
-                      ? 'home__hero-subtitle'
-                      : 'home__hero-subtitle dark'
+                      ? 'home__tre-subtitle1'
+                      : 'home__tre-subtitle1 dark1'
                   }
                 >
                   {description}
@@ -50,10 +50,8 @@ function HeroSection({
                 </Link>
               </div>
             </div>
-            <div className='col'>
-              <div className='home__hero-img-wrapper'>
-                <img src={img} alt={alt} className='home__hero-img' />
-              </div>
+            <div className='col1'>
+
             </div>
           </div>
         </div>
@@ -62,4 +60,4 @@ function HeroSection({
   );
 }
 
-export default HeroSection;
+export default StockSection;
