@@ -1,39 +1,55 @@
 import yfinance as yf
 import pandas as pd
+import datetime as dt
 import xgboost as xgb
 import matplotlib.pyplot as plt
 import csv
+from ta import add_all_ta_features
 
-msft = yf.Ticker("MSFT")
-print(msft.info)
+def makePredictions(symbol):
+    tickerSymbol = symbol; 
 
-data = pd.read_csv("MSFT.csv")
-data
+    end_date = dt.datetime.now()
+    start_date = end_date - dt.timedelta(days = 365)
+
+    tickerData = yf.Ticker(tickerSymbol)
+    data = tickerData.history(period = "1mo", start = start_date, end = end_date)
+
+    data = data.dropna()
 
 
-data['Close'].plot()
+    data.to_csv("data.csv")
+    data = pd.read_csv("data.csv")
 
-train_data = data.iloc[:int(.99*len(data)), :]
-test_data = data.iloc[:int(.99*len(data)):, :]
 
-features = ["Open", "Volume"]
-target = 'Close'
+    data['Close'].plot()
 
-model = xgb.XGBRegressor()
-model.fit(train_data[features], train_data[target])
+    train_data = data.iloc[:int(.99*len(data)), :]
+    test_data = data.iloc[:int(.99*len(data)):, :]
 
-predictions = model.predict(test_data[features])
-print("Model Predictions: ")
-print(predictions)
+    features = ["Open", "Volume"]
+    target = 'Close'
 
-print('Actual Values: ')
-print(test_data[target])
+    model = xgb.XGBRegressor()
+    model.fit(train_data[features], train_data[target])
 
-accuracy = model.score(test_data[features], test_data[target])
-print("Accuracy: ")
-print(accuracy)
+    predictions = model.predict(test_data[features])
+    plt.plot(data['Close'], label = 'Close price')
+    plt.plot(test_data[target].index, predictions, label = 'Predictions')
+    plt.legend() 
+    plt.show()
+    return "Model Predictions:" + str(predictions)
 
-plt.plot(data['Close'], label = 'Close price')
-plt.plot(test_data[target].index, predictions, label = 'Predictions')
-plt.legend()
-plt.show()
+    # print('Actual Values: ')
+    # print(test_data[target])
+
+    # accuracy = model.score(test_data[features], test_data[target])
+    # print("Accuracy: ")
+    # print(accuracy)
+
+    plt.plot(data['Close'], label = 'Close price')
+    plt.plot(test_data[target].index, predictions, label = 'Predictions')
+    plt.legend() 
+    plt.show()
+
+
