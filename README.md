@@ -1,5 +1,5 @@
 # Group 8
-Group Name: TEAM_NAME
+Group Name: CrownTrade
 
 MVP Link: https://docs.google.com/document/d/1JJBqWgA7eKa2je-o3UyfSF6DQoXS8ClQ96AxuXNYb74/edit
 
