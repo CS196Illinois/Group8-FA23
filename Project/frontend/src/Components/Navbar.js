@@ -38,7 +38,7 @@ function Navbar() {
       <IconContext.Provider value={{ color: '#fff' }}>
         <nav className='navbar'>
           <div className='navbar-container container'>
-            <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+            <Link to='/home' className='navbar-logo' onClick={closeMobileMenu}>
             <FaCrown className='navbar-icon' />
               CrownTrade 
             </Link>
