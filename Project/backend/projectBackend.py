@@ -21,6 +21,7 @@ def makePredictions(symbol):
     data.to_csv("data.csv")
     data = pd.read_csv("data.csv")
 
+    print(data)
 
     data['Close'].plot()
 
@@ -34,10 +35,10 @@ def makePredictions(symbol):
     model.fit(train_data[features], train_data[target])
 
     predictions = model.predict(test_data[features])
-    plt.plot(data['Close'], label = 'Close price')
-    plt.plot(test_data[target].index, predictions, label = 'Predictions')
-    plt.legend() 
-    plt.show()
+    # plt.plot(data['Close'], label = 'Close price')
+    # plt.plot(test_data[target].index, predictions, label = 'Predictions')
+    # plt.legend() 
+    # plt.show()
     return "Model Predictions:" + str(predictions)
 
     # print('Actual Values: ')
